@@ -1,248 +1,190 @@
-<!doctype html>
-<html lang="my">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Login — Luffy Theme</title>
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1724;
-      --accent:#ffb86b;
-      --muted:#98a0b3;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, "Noto Sans Myanmar", sans-serif;
-      background: radial-gradient(circle at 10% 10%, #071226 0%, var(--bg) 50%);
-      color:#e6eef8;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-
-    .login-wrap{
-      width:100%;
-      max-width:920px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
-      display:grid;
-      grid-template-columns: 360px 1fr;
-      overflow:hidden;
-    }
-
-    /* Luffy side */
-    .hero{
-      padding:28px;
-      background: linear-gradient(135deg, rgba(255,184,107,0.06), rgba(255,184,107,0.02));
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero img{
-      width:200px;
-      height:200px;
-      border-radius:50%;
-      object-fit:cover;
-      border:6px solid rgba(255,255,255,0.06);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    }
-    .hero h2{margin:0;font-size:22px}
-    .hero p{margin:0;color:var(--muted);text-align:center;font-size:14px}
-
-    /* Form side */
-    .form-area{padding:36px 40px;}
-    .form-area h3{margin:0 0 8px 0;font-size:20px}
-    .form-area p.desc{margin:0 0 24px 0;color:var(--muted);font-size:13px}
-
-    .field{
-      margin-bottom:16px;
-      position:relative;
-    }
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
-    input[type="text"], input[type="password"]{
-      width:100%;
-      padding:12px 44px 12px 12px;
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.02);
-      color:inherit;
-      font-size:15px;
-      outline:none;
-      transition:box-shadow .15s, border-color .15s;
-    }
-    input:focus{
-      box-shadow:0 6px 25px rgba(0,0,0,0.6);
-      border-color: rgba(255,184,107,0.7);
-    }
-
-    .toggle-pass{
-      position:absolute;
-      right:10px;
-      top:36px;
-      transform:translateY(-2px);
-      background:none;
-      border:0;
-      color:var(--muted);
-      cursor:pointer;
-      font-size:13px;
-    }
-
-    .pass-strength{
-      height:8px;
-      width:100%;
-      background:rgba(255,255,255,0.03);
-      border-radius:6px;
-      overflow:hidden;
-      margin-top:8px;
-    }
-    .pass-strength > i{
-      display:block;
-      height:100%;
-      width:0%;
-      transition:width .25s;
-      background: linear-gradient(90deg, #ff6b6b, #ffb86b);
-    }
-
-    .btn{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:10px;
-      border:0;
-      cursor:pointer;
-      font-weight:600;
-      background:linear-gradient(90deg, var(--accent), #ff8a4b);
-      color:#081020;
-      font-size:15px;
-      box-shadow: 0 8px 20px rgba(255,138,75,0.12);
-    }
-
-    .helper{margin-top:12px;color:var(--muted);font-size:13px}
-    .error{color:#ff6b6b;font-size:13px;margin-top:8px;display:none}
-
-    @media (max-width:820px){
-      .login-wrap{grid-template-columns:1fr;max-width:420px}
-      .hero{padding:18px}
-      .hero img{width:140px;height:140px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Password Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #e67e22;
+        }
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .food-item {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .food-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .food-item.selected {
+            border-color: #2ecc71;
+            background-color: #e8f8f0;
+        }
+        .food-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #d35400;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <div class="login-wrap" role="main" aria-label="Luffy themed login">
-    <div class="hero" aria-hidden="false">
-      <!-- ထည့်ထားမယ့် Luffy ပုံကို project folder ထဲမှာ luffy.png နဲ့ သိမ်းထားပါ -->
-      <img src="luffy.png" alt="Luffy" id="luffyImg" />
-      <h2>စွယ်စုံ ကြံ့ခိုင်မှု</h2>
-      <p>လုဖီပုံနဲ့ သင့်ရဲ့ လော့ဂ်အင်ပုံစံ — password အပိုင်းက ရိုးရှင်းသေချာပြင်ထားပါတယ်။</p>
+    <div class="container">
+        <h1>Welcome to Food Locker</h1>
+        <p>Select your favorite foods in the correct order to enter:</p>
+        
+        <div class="food-grid">
+            <div class="food-item" data-value="1">
+                <img src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_640.jpg" alt="Burger">
+                <p>Burger</p>
+            </div>
+            <div class="food-item" data-value="1">
+                <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_640.jpg" alt="Pizza">
+                <p>Pizza</p>
+            </div>
+            <div class="food-item" data-value="1">
+                <img src="https://cdn.pixabay.com/photo/2016/03/05/20/02/sushi-1239227_640.jpg" alt="Sushi">
+                <p>Sushi</p>
+            </div>
+            <div class="food-item" data-value="1">
+                <img src="https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_640.jpg" alt="Pasta">
+                <p>Pasta</p>
+            </div>
+            <div class="food-item" data-value="2">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/08/32/apple-pie-1868702_640.jpg" alt="Pie">
+                <p>Apple Pie</p>
+            </div>
+            <div class="food-item" data-value="2">
+                <img src="https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_640.jpg" alt="Cake">
+                <p>Cake</p>
+            </div>
+            <div class="food-item" data-value="2">
+                <img src="https://cdn.pixabay.com/photo/2018/05/01/18/21/ice-cream-3366280_640.jpg" alt="Ice Cream">
+                <p>Ice Cream</p>
+            </div>
+            <div class="food-item" data-value="2">
+                <img src="https://cdn.pixabay.com/photo/2016/11/22/18/52/cupcake-1850011_640.jpg" alt="Cupcake">
+                <p>Cupcake</p>
+            </div>
+        </div>
+        
+        <p>Your selections: <span id="password-display"></span></p>
+        
+        <button class="submit-btn" id="submit-btn">Submit</button>
+        
+        <div class="message" id="message"></div>
     </div>
 
-    <div class="form-area">
-      <h3>Sign in</h3>
-      <p class="desc">Username နဲ့ Password ထည့်ပြီး လော့ဂ်အင် ဝင်ပါ။</p>
-
-      <form id="loginForm" novalidate>
-        <div class="field">
-          <label for="username">Username</label>
-          <input id="username" name="username" type="text" placeholder="e.g. zoro123" required />
-        </div>
-
-        <div class="field">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="Your secure password" minlength="6" required />
-          <button type="button" class="toggle-pass" id="togglePass" aria-pressed="false">Show</button>
-
-          <div class="pass-strength" aria-hidden="true" title="Password strength">
-            <i id="strengthBar"></i>
-          </div>
-
-          <div class="error" id="passError">Password should be at least 6 characters.</div>
-        </div>
-
-        <div style="display:flex;gap:12px;align-items:center;margin-top:6px;">
-          <button class="btn" type="submit">Log in</button>
-          <div class="helper">သေချာပါသလား? <a href="#" style="color:var(--accent);text-decoration:none">Forgot?</a></div>
-        </div>
-      </form>
-
-      <div id="status" style="margin-top:14px;color:var(--muted);font-size:13px"></div>
-    </div>
-  </div>
-
-  <script>
-    // JS — သေချာအသေးစိတ်ဖြေရှင်းချက်
-    const password = document.getElementById('password');
-    const toggle = document.getElementById('togglePass');
-    const strengthBar = document.getElementById('strengthBar');
-    const passError = document.getElementById('passError');
-    const form = document.getElementById('loginForm');
-    const status = document.getElementById('status');
-
-    // Show / hide password
-    toggle.addEventListener('click', () => {
-      const isVisible = password.type === 'text';
-      password.type = isVisible ? 'password' : 'text';
-      toggle.textContent = isVisible ? 'Show' : 'Hide';
-      toggle.setAttribute('aria-pressed', String(!isVisible));
-    });
-
-    // Simple password strength meter
-    function calcStrength(pw){
-      let score = 0;
-      if (!pw) return 0;
-      // length
-      if (pw.length >= 6) score += 1;
-      if (pw.length >= 10) score += 1;
-      // variety: digits, lower, upper, special
-      if (/[0-9]/.test(pw)) score += 1;
-      if (/[a-z]/.test(pw)) score += 1;
-      if (/[A-Z]/.test(pw)) score += 1;
-      if (/[^A-Za-z0-9]/.test(pw)) score += 1;
-      return Math.min(score, 6);
-    }
-
-    password.addEventListener('input', () => {
-      const pw = password.value;
-      const s = calcStrength(pw);
-      const pct = (s / 6) * 100;
-      strengthBar.style.width = pct + '%';
-
-      // show error if too short
-      if (pw.length > 0 && pw.length < 6) {
-        passError.style.display = 'block';
-      } else {
-        passError.style.display = 'none';
-      }
-    });
-
-    // handle submit (demo - replace with real auth)
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const u = document.getElementById('username').value.trim();
-      const pw = password.value;
-
-      if (!u) {
-        status.textContent = 'Username ထည့်ပေးပါ။';
-        return;
-      }
-      if (pw.length < 6) {
-        status.textContent = 'Password က အနည်းဆုံး 6 လုံး ဖြစ်ရပါမယ်။';
-        return;
-      }
-
-      // Demo: simple fake login check (replace with real server call)
-      status.style.color = '#bcd6ff';
-      status.textContent = 'Logging in... (demo)';
-      setTimeout(() => {
-        status.style.color = '#9ff7b6';
-        status.textContent = `ကောင်းပါပြီ၊ ${u} — demo ဝင်နိုင်ပါပြီ။ ✨`;
-      }, 900);
-    });
-  </script>
+    <script>
+        const foodItems = document.querySelectorAll('.food-item');
+        const passwordDisplay = document.getElementById('password-display');
+        const submitBtn = document.getElementById('submit-btn');
+        const messageDiv = document.getElementById('message');
+        
+        let userPassword = [];
+        
+       
+        const correctPassword = ['1', '1', '1', '1', '2', '2', '2', '2'];
+        
+        foodItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (userPassword.length < 8) {
+                    item.classList.add('selected');
+                    const value = item.getAttribute('data-value');
+                    userPassword.push(value);
+                    updatePasswordDisplay();
+                }
+            });
+        });
+        
+        function updatePasswordDisplay() {
+            passwordDisplay.textContent = userPassword.join('');
+        }
+        
+        submitBtn.addEventListener('click', () => {
+            if (userPassword.length !== 8) {
+                showMessage('Please select exactly 8 food items', 'error');
+                return;
+            }
+            
+            
+            const isCorrect = userPassword.every((val, index) => val === correctPassword[index]);
+            
+            if (isCorrect) {
+                showMessage('Access granted! Welcome to the Food Locker!', 'success');
+                
+            } else {
+                showMessage('Incorrect food combination. Please try again.', 'error');
+                resetSelections();
+            }
+        });
+        
+        
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + type;
+        }
+        
+        
+        function resetSelections() {
+            userPassword = [];
+            passwordDisplay.textContent = '';
+            foodItems.forEach(item => {
+                item.classList.remove('selected');
+            });
+        }
+    </script>
 </body>
 </html>
